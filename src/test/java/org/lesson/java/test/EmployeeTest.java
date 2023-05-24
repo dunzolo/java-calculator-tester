@@ -12,13 +12,19 @@ import org.junit.jupiter.api.Test;
 public class EmployeeTest {
 	private static Employee e;
 	
-	@BeforeAll
-	public static void initEmployee() throws Exception {
+	@Test
+	public void employeeConstruct() throws Exception {
 		final String nome = "davide";
 		final String cognome = "rossi";
 		final String ruolo = "boss";
-		LocalDate data_nascita = LocalDate.parse("2020/05/10");
+		LocalDate data_nascita = LocalDate.parse("2020-05-10");
 		
 		e = new Employee(nome, cognome, data_nascita, ruolo);
+	}
+	
+	@Test
+	public void employeeEmptyNameConstruct() throws Exception {
+		assertThrows(Exception.class,
+				() -> new Employee(null, "rossi", LocalDate.parse("2020-01-01"), "boss"));
 	}
 }

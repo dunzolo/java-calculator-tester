@@ -20,14 +20,14 @@ public class Employee {
 		return nome;
 	}
 	public void setNome(String nome) throws Exception {
-		if(nome == " ") throw new Exception();
+		if(nome == null || nome.isBlank()) throw new Exception();
 		this.nome = nome;
 	}
 	public String getCognome() {
 		return cognome;
 	}
 	public void setCognome(String cognome) throws Exception {
-		if(nome == "") throw new Exception();
+		if(cognome == null || cognome.isBlank()) throw new Exception();
 		this.cognome = cognome;
 	}
 	public LocalDate getDataNascita() {
@@ -41,7 +41,7 @@ public class Employee {
 		return ruolo;
 	}
 	public void setRuolo(String ruolo) throws Exception {
-		if(ruolo.toLowerCase().equals("employee") || ruolo.toLowerCase().equals("boss")) throw new Exception();
+		if(!(ruolo.toLowerCase().equals("employee") || ruolo.toLowerCase().equals("boss"))) throw new Exception();
 		this.ruolo = ruolo;
 	}
 }
